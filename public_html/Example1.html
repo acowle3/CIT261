@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Example 1</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+        <h2>Simple Investment Calculator</h2>
+        
+        <h4>Primary Amount:</h4>
+        <input type = "text" id = "investment">
+        <p id="errorCatchOne"></p>
+        <h4>Yearly Interest Rate (Percentage)</h4>
+        <input type = "text" id = "interest_rate">
+        <p id="errorCatchTwo"></p>
+        <h4>Number of Years</h4>
+        <input type = "text" id = "years">
+        <p id="errorCatchThree"></p>
+        <button type = "button" onclick = "calculateInterest()"> Go </button>
+        <p id="finalCalculation"></p> <br>
+        <p id="errorCatchFour"></p>
+        <script type="text/Javascript">
+            
+        function calculateInterest()
+        {
+            function timeToInvest(primary, rate) {
+                this.primary = primary;
+                this.rate = rate;
+                this.calculate = function (years) {
+                    for (var i = 1; i <= years; i++)
+                    {
+                    this.primary = this.primary + (this.primary * this.rate * 0.01);
+                    }    
+                }
+            }
+        var first = parseFloat(document.getElementById('investment').value);
+        var second = parseFloat(document.getElementById('interest_rate').value);
+        var third = parseFloat(document.getElementById('years').value);
+        var yourInvestment = new timeToInvest(first, second);
+        
+        
+        
+        var errorMessage = '>';
+        
+        if ( isNaN(first) || isNaN(second) || isNaN(third))
+        {
+            errorMessage += " Please enter a proper number."
+        }
+        if(first <= 0 || second <= 0 || third <= 0)
+        {
+            errorMessage += " Please enter a number larger than 0.";
+        }
+        
+        if(errorMessage != '>')
+        {
+            document.getElementById('errorCatchOne').innerHTML=first;
+            document.getElementById('errorCatchTwo').innerHTML=second;
+            document.getElementById('errorCatchThree').innerHTML=third;
+            window.alert(errorMessage);
+            return 1;
+        }
+
+        yourInvestment.calculate(third);
+        
+        document.getElementById('finalCalculation').innerHTML= "Final Amount: $" + yourInvestment.primary.toFixed(2);
+
+        }
+        </script>
+        </main>
+    </body>
+</html>

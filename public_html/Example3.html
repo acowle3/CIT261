@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Arrays</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2>Arrays</h2>
+            
+            <p id="tehOutput"></p>
+            <h2>This is a demonstration of an output from an associative array.  I don't know exactly when I'll use it.</h2>
+            <p id="anotherOutput"></p>
+            <script>
+            var theNumbers = [1, 2, 3, 4, 6, 3, 6, 8, 4, 6];
+            var helloThere = "Numbers: ";
+            
+            for(i = 0; i < theNumbers.length; i++) {
+                helloThere += theNumbers[i] + ", ";
+            }
+            document.getElementById("tehOutput").innerHTML = helloThere;
+            
+            var product = [];
+            product["name"] = "Destructobot";
+            product["weight"] = 700;
+            product["description"] = "This Gigantic Robot Kills.";
+            document.getElementById("anotherOutput").innerHTML = product["name"] + "<br>" + product["description"];
+        </script>
+        </main>
+    </body>
+</html>

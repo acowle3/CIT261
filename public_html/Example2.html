@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Inheritance</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2>Inheritance</h2>
+            <p id="output1"></p>
+            <p id="output2"></p>
+        </main>
+        <script type="text/Javascript">
+                function Vehicle(name, grossWeight, horsePower) {
+                    this.name = name;
+                    this.grossWeight = grossWeight;
+                    this.horsePower = horsePower;
+                }
+                Vehicle.prototype.driveAround = function() {
+                    return('I like to drive around town with my ' + this.name + 
+                            ' that weighs ' + this.grossWeight + 
+                            " pounds and has a " + this.horsePower + ' horsepower engine.')
+                }
+                
+        
+                function Tank(name, grossWeight, horsePower) {
+                    Vehicle.call(this, name, grossWeight, horsePower);
+                }
+                
+                Tank.prototype = new Vehicle();
+                
+                Tank.prototype.blowStuffUp = function() {
+                    return ('I like to blow stuff up with my ' + this.name + 
+                            ' that weighs ' + this.grossWeight + 
+                            " pounds and has a " + this.horsePower + ' horsepower engine.');
+                }
+                
+                
+                
+                var car = new Vehicle("Ferrari 488", 3404, 126.3);
+                var destructo = new Tank("Tiger II", 150974, 900)
+                document.getElementById('output1').innerHTML=car.driveAround();
+                document.getElementById('output2').innerHTML=destructo.blowStuffUp();
+            
+        </script>
+    </body>
+</html>

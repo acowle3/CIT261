@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JSON Parse, Stringify</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2>Parse, Stringify</h2>
+        
+            <p id="outputOne"></p>
+            <p id="outputTwo"></p>
+            <script type="text/Javascript">
+            var mlgMode = ["airhorn", "mountain dew", "doritos", "sanic", "snoopdog", "spooky scary skeletons", "noscope"];
+            var mlgString = JSON.stringify(mlgMode);
+            
+            document.getElementById('outputOne').innerHTML = "This is a string: " + mlgString;
+            var mlgArray = JSON.parse(mlgString);
+            var mlgOutput = "This is an array: ";
+            for(i=0;i<mlgArray.length;i++)
+            {
+                mlgOutput += mlgArray[i] + ", ";
+            }
+            
+            document.getElementById("outputTwo").innerHTML = mlgOutput;
+        </script>
+        </main>
+    </body>
+</html>
