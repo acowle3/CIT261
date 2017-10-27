@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Local Storage API</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2 id="Error"></h2>
+            <h2>This is some simple data</h2>
+            <p id="simpleOutput"></p>
+            <h2>This is an array</h2>
+            <p id="arrayOutput"></p>
+            <h2>This is one piece of data from an associative array</h2>
+            <p id="associativeArrayOutput"></p>
+            <h2>This is the raw associative array</h2>
+            <p id="rawArrayOutput"></p>
+            <h2>This is one piece of data from an object</h2>
+            <p id="objectOutput"></p>
+            <h2>This is the raw object</h2>
+            <p id="rawObjectOutput"></p>
+        </main>
+        <script type="text/Javascript">
+            
+            var theInteger = 4;
+            var theString = "Ten thousand dollars";
+            var theArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            var theAssociativeArray = {name:"Destructobot", description:"This gigantic robot kills"};
+            var theObject = { "name":"Car", "weight":3000, function() {return (this.name + " Weighs " + this.weight)}};
+            
+            if(typeof(Storage) !== "undefined") {
+                //if(localStorage.aString) {
+                    localStorage.anInteger = theInteger;
+                    localStorage.aString = theString + " " + theInteger;
+                    localStorage.setItem("anArray", JSON.stringify(theArray));
+                    localStorage.setItem("anAssociativeArray", JSON.stringify(theAssociativeArray));
+                    localStorage.setItem("anObject", JSON.stringify(theObject));
+                    document.getElementById("simpleOutput").innerHTML = localStorage.aString;
+                    var outputArray = JSON.parse(localStorage.getItem("anArray"));
+                    var stringArray = ": "
+                    for (i = 0; i < outputArray.length; i++ ) {
+                        stringArray += outputArray[i] + ", ";
+                    }
+                    document.getElementById("arrayOutput").innerHTML = stringArray;
+                    var parsedArray = JSON.parse(localStorage.getItem("anAssociativeArray"));
+                    document.getElementById("associativeArrayOutput").innerHTML = parsedArray["name"];
+                    document.getElementById("rawArrayOutput").innerHTML = JSON.stringify(localStorage.getItem("anAssociativeArray"));
+                    var parsedObject = JSON.parse(localStorage.getItem("anObject"));
+                    document.getElementById("objectOutput").innerHTML = parsedObject.name;
+                    document.getElementById("rawObjectOutput").innerHTML = localStorage.getItem("anObject");
+                    
+                //}
+        
+            }
+            else {
+                document.getElementById("Error").innerHTML = "Sorry, your browser does not support web storage...";
+            }
+            
+            
+        </script>
+    </body>
+</html>
