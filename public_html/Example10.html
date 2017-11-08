@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Transition with a button</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="animationcss2.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2>MAKE MAH MONSTER GROW!!!!</h2>
+            <button onclick="transitionButton()">Grow</button>
+            <div id= "monster" class="smallMonster"></div>
+        </main>
+        <script>
+            var theTransition = document.getElementById("monster");
+            function transitionButton() {
+                theTransition.classList.toggle("monsterGrow");
+            }
+        </script>
+    </body>
+</html>

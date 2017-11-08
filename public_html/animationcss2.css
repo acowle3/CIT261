@@ -1,0 +1,16 @@
+.smallMonster {
+    background-image: url("godzilla.jpg");
+    background-size: cover;
+    width: 300px;
+    height: 414px;
+    -webkit-transition: width 2s, height 2s;
+    transition: width 2s, height 2s;
+
+}
+
+.monsterGrow {
+    width: 600px;
+    height: 828px;
+    background-size: cover;
+}
+
