@@ -55,6 +55,14 @@ and open the template in the editor.
                     break;
             }
         }
+        function removeFromTop() {
+            var destructo = document.getElementById("dancers");
+            destructo.removeChild(destructo.firstElementChild);
+        }
+        function removeFromBottom() {
+            var destructo = document.getElementById("dancers");
+            destructo.removeChild(destructo.lastElementChild);
+        }
     </script>
     </body>
     
