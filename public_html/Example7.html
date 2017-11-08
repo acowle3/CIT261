@@ -16,12 +16,46 @@ and open the template in the editor.
             <a href="index.html">Return to Index</a>
         </header>
         <main id="main">
-            <h2>HAMPSTER DANCE 3.0</h2>
-            <button onclick="hampsterBefore()">Insert Hampster before</button>
-            <div id="dancers"></div>
+            <h2>HAMSTER DANCE 3.0</h2>
+            <button onclick="addToTop()">Add above boredguy</button>
+            <button onclick="addToBottom()">Add below boredguy</button>
+            <button onclick="removeFromTop()">Remove above boredguy</button>
+            <button onclick="removeFromBottom()">Remove below boredguy</button>
+            <div id="dancers">
+                <img src="giphy.gif" alt="Image Not loaded">
+            </div>
         </main>
         <audio>
-            <source src="enya.mp3">
+            <source src="hamsterdance.mp3">
         </audio>
+    <script type="text/Javascript">
+            
+        function addToBottom() {
+            var anImage = document.createElement("img");
+            anImage.src = randomImage();
+            var source = document.getElementById("dancers");
+            source.appendChild(anImage);
+        }
+        function addToTop() {
+            var anImage = document.createElement("img");
+            anImage.src = randomImage();
+            var source = document.getElementById("dancers");
+            
+            source.insertBefore(anImage, source.firstElementChild);
+        }
+        function randomImage() {
+            var theSwitch = Math.floor((Math.random() * 2) + 1);
+            
+            switch (theSwitch) {
+                case 1:
+                    return "118814-Happy-Dancing-Hamster.gif";
+                    break;
+                case 2:
+                    return "hamsterdance3.gif";
+                    break;
+            }
+        }
+    </script>
     </body>
+    
 </html>

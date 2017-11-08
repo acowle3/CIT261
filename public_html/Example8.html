@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manipulating CSS Properties</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <audio loop id="awesomeFaceSong">
+            <source src="awesome.mp3" type="audio/mpeg">
+        </audio>
+        <!--"Balla da li (Radio Mix)" by Boom Boxx (featuring Linda O.) -->
+        <main id="main">
+            <h2>Manipulating CSS Properties</h2>
+            <button onclick="bgdColor()">background color</button>
+            <button onclick="changeThis()" id="changeMe">change font/color of this button</button>
+            <button onclick="changeSecond()">change font/color of second paragraph</button>
+            <button onclick="makeParagraphMatch()" id="changeTheClass"></button>
+            <button onclick="danceParty()">DANCE PARTY</button>
+            <p class="firstParagraph" id="changeParagraph">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p>
+            <p class="secondParagraph">Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.</p>
+        </main>
+        
+        <script>
+            
+            document.getElementById('changeTheClass').innerHTML = "Make first paragraph match second paragraph";
+            
+            function bgdColor() {
+                document.body.style.backgroundColor = randomColor();
+            }
+            function changeThis() {
+                var tehSwitch = Math.floor((Math.random() * 2) + 1);
+                switch(tehSwitch) {
+                    case 1:
+                        document.getElementById('changeMe').style.color = randomColor();
+                        break;
+                    case 2:
+                        document.getElementById('changeMe').style.fontFamily = randomFont();
+                        break;
+                }
+                
+            }
+            function changeSecond() {
+                var tehSwitch = Math.floor((Math.random() * 2) + 1);
+                var theElements = document.getElementsByClassName('secondParagraph');
+                switch(tehSwitch) {
+                    case 1:
+                        for (var i = 0; i < theElements.length; i++)
+                        {
+                            var theElement = theElements[i];
+                            theElement.style.color = randomColor();
+                        }
+                        break;
+                    case 2:
+                        for (var i = 0; i < theElements.length; i++)
+                        {
+                            var theElement = theElements[i];
+                            theElement.style.fontFamily = randomFont();
+                        }
+                        break;
+                }
+            }
+            function makeParagraphMatch() {
+                
+                
+                var change = document.getElementById('changeParagraph');
+                if(change.className === 'firstParagraph')
+                {
+                    change.className = "secondParagraph";
+                    document.getElementById('changeTheClass').innerHTML = "Make first paragraph match second paragraph";
+                }
+                else {
+                    change.className = "firstParagraph";
+                    document.getElementById('changeTheClass').innerHTML = "Make first paragraph a different class from the second one";
+                }
+                
+            }
+            function randomColor() {
+                var theSwitch = Math.floor((Math.random() * 4) + 1);
+                switch (theSwitch) {
+                    case 1:
+                        return "#f92d04";
+                        break;
+                    case 2:
+                        return "#00a502";
+                        break;
+                    case 3:
+                        return "#ffee00";
+                        break;
+                    case 4:
+                        return "#005dff";
+                        break;
+                }
+            }
+            function randomFont() {
+                var anotherSwitch = Math.floor((Math.random() * 4) + 1);
+                switch (anotherSwitch) {
+                    case 1:
+                        return "Trebuchet MS, sans-serif";
+                        break;
+                    case 2:
+                        return "Arial Black, sans-serif";
+                        break;
+                    case 3:
+                        return "Bookman, serif";
+                        break;
+                    case 4:
+                        return "Palatino, serif";
+                        break;
+                }
+            }
+            function danceParty() {
+                var sound = document.getElementById("awesomeFaceSong");
+                sound.play();
+                document.body.style.backgroundImage = "url(awesomeface.gif)";
+                document.body.style.backgroundSize = "40%";
+                
+            }
+        </script>
+    </body>
+</html>
