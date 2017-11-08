@@ -21,6 +21,7 @@ and open the template in the editor.
             <button onclick="addToBottom()">Add below boredguy</button>
             <button onclick="removeFromTop()">Remove above boredguy</button>
             <button onclick="removeFromBottom()">Remove below boredguy</button>
+            <button onclick="clearIt()">Reset</button>
             <div id="dancers">
                 <img src="giphy.gif" alt="Image Not loaded">
             </div>
@@ -57,11 +58,21 @@ and open the template in the editor.
         }
         function removeFromTop() {
             var destructo = document.getElementById("dancers");
-            destructo.removeChild(destructo.firstElementChild);
+            destructo.removeChild(destructo.childNodes[0]);
         }
         function removeFromBottom() {
             var destructo = document.getElementById("dancers");
             destructo.removeChild(destructo.lastElementChild);
+        }
+        function clearIt() {
+            var destructo = document.getElementById("dancers");
+            while(destructo.hasChildNodes()) {
+                destructo.removeChild(destructo.firstChild);
+            }
+            var anImage = document.createElement("img");
+            anImage.src = "giphy.gif";
+            var source = document.getElementById("dancers");
+            source.appendChild(anImage);
         }
     </script>
     </body>
