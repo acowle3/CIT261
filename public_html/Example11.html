@@ -6,11 +6,40 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>JavaScript Events</title>
+        <title>Canvas, video, etc</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <canvas id="theCanvas" width="435" height="356"></canvas>
+            <video controls>
+                <source src="scrubscrubscrub.mp4" type="video/mp4">
+            </video>
+            <audio controls>
+                <source src="scrubscrubscrub.mp3" type="audio/mpeg">
+            </audio>
+        </main>
+            <br><a href="https://github.com/acowle3/CIT261/blob/master/public_html/Example11.html">View Source Code</a>
+            
+        <script>
+            
+            var theCanvas = document.getElementById('theCanvas').getContext('2d');
+            var theImage = new Image();
+            theImage.onload = function() {
+                theCanvas.drawImage(theImage, 0, 0);
+                theCanvas.font = "50pt impact";
+                theCanvas.strokeText("Mah Boi!", 30, 300);
+            };
+            theImage.src = 'mahboi.png';
+        
+            
+            
+            
+        </script>
     </body>
 </html>
