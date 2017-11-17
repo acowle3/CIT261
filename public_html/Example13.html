@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html">Return to Index</a>
+        </header>
+        <main id="main">
+            <h2 id="theHead">THE FART BUTTON</h2>
+            <p id="fartyTime"></p>
+            <h2 id="scream">THE SCREAM BUTTON</h2>
+            <p id="screamOutput"></p>
+            <h2 id="belch">THE BURP BUTTON</h2>
+            <p id="burpOutput"></p>
+            <audio id="fartSound">
+                <source src="fart.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="burpSound">
+                <source src="burp.mp3" type="audio/mpeg">
+            </audio>
+            <audio id="screamSound">
+                <source src="scream.mp3" type="audio/mpeg">
+            </audio>
+        </main>
+        <script>
+            var theElement = document.getElementById("theHead");
+            theElement.addEventListener("click", fartFunction);
+            function fartFunction() {
+                document.getElementById('fartyTime').innerHTML = "PPPfffffffffff!!!";
+                var sound = document.getElementById('fartSound');
+                sound.play();
+            }
+            var anotherElement = document.getElementById("scream");
+            anotherElement.addEventListener("mouseover", screamFunction);
+            anotherElement.addEventListener("mouseout", silencer);
+            function screamFunction() {
+                document.getElementById('screamOutput').innerHTML = "AAAAIIIIIIIAAAIIII!!!";
+                var sound = document.getElementById('screamSound');
+                sound.play();
+            }
+            function silencer() {
+                document.getElementById('screamOutput').innerHTML = "Meh";
+                var sound = document.getElementById('screamSound');
+                sound.pause();
+                sound.currentTime = 0;
+            }
+            var yetAnotherElement = document.getElementById("belch");
+            yetAnotherElement.addEventListener("touchstart", burpTime);
+            yetAnotherElement.addEventListener("touchend", burpFinish);
+            
+            function burpTime() {
+                document.getElementById('burpOutput').innerHTML = "BUUUURRRRPPPPP";
+                var sound = document.getElementById('burpSound');
+                sound.play();
+            }
+            function burpFinish() {
+                document.getElementById('burpOutput').innerHTML = '';
+                var sound = document.getElementById('burpSound');
+                sound.pause();
+                sound.currentTime = 0;
+            }
+        </script>
+    </body>
+</html>
