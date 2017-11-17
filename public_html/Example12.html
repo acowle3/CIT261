@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="animationcss3.css">
     </head>
     <body>
         <header>
@@ -17,12 +18,38 @@ and open the template in the editor.
         </header>
         <main id="main">
             <h2>With Transitions/Transforms</h2>
-            <div id="theWrapper"><img class="front" src="giphy.gif"></div>
+            <img class="idle" id="firstImage" src="giphy.gif" alt="notloaded">
             <h2>With Animation</h2>
-            <div id="secondWrapper"><img class="front" src="awesomeface.png"></div>
+            <img class="idle" id="secondImage" src="awesomeface.png" alt="notloaded">
             <br><a href="https://github.com/acowle3/CIT261/blob/master/public_html/Example12.html">View Source Code</a>
         </main>
+        <audio loop id="spinSong">
+            <source src="spin.mp3" type="audio/mpeg">
+        </audio>
         <script>
+            var firstElement = document.getElementById("firstImage");
+            firstElement.addEventListener("mouseover", spinTransition);
+            function spinTransition() {
+                firstElement.className = "transitionOne";
+                setTimeout(stopTransition, 2000);
+            }
+            function stopTransition() {
+                firstElement.className = "idle";
+            }
+            var theElement = document.getElementById("secondImage");
+            theElement.addEventListener("mouseover", spinAnimation);
+            theElement.addEventListener("mouseleave", stopAnimation);
+            function spinAnimation() {
+                theElement.className = "animateTwo";
+                var sound = document.getElementById('spinSong');
+                sound.play();
+            }
+            function stopAnimation() {
+                theElement.className = "idle";
+                var sound = document.getElementById('spinSong');
+                sound.pause();
+                sound.currentTime = 0;
+            }
             
         </script>
     </body>

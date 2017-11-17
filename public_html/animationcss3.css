@@ -1,0 +1,23 @@
+.idle {
+    width: 150px;
+    height: 150px;
+}
+
+#firstImage {
+    transition: transform 2s linear;
+}
+
+.transitionOne {
+    transform: rotate(360deg);
+}
+
+.animateTwo {
+
+    animation: spinMe 500ms linear infinite;
+}
+
+@keyframes spinMe{
+    100% {
+        transform: rotate(360deg);
+    }
+}
