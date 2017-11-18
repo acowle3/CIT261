@@ -1,0 +1,34 @@
+.wrapper {
+    width: 1000px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    
+}
+
+.idle {
+    width: 150px;
+    height: 150px;
+    position: relative;
+}
+
+.animateSpin {
+
+    animation: spinit 125ms linear infinite;
+}
+
+@keyframes spinit{
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.animateOrbit {
+    animation: orbitIt 1000ms linear infinite;
+}
+
+@keyframes orbitIt {
+    100% {
+        transform: rotate(360deg);
+    }
+}
